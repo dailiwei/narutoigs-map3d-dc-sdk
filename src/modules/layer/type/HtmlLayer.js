@@ -56,9 +56,16 @@ class HtmlLayer extends Layer {
             scene,
             position
           )
+          let distance
+          if (this._viewer.scene.mode === 2) {
+            let cameraPosition = this._viewer.cameraPosition
+            distance = cameraPosition.alt
+          } else {
+            distance = Cesium.Cartesian3.distance(position, cp)
+          }
           item._updateStyle(
             windowCoord,
-            Cesium.Cartesian3.distance(position, cp),
+            distance,
             Cesium.Cartesian3.dot(cd, up) <= 0
           )
         }

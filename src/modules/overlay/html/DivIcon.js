@@ -126,7 +126,7 @@ class DivIcon extends Overlay {
     // update style
     this._delegate.style.transform = `${translate3d} ${scale3d}`
     this._delegate.style.visibility =
-      isDisplay && isFront ? 'visible' : 'hidden'
+      isDisplay  ? 'visible' : 'hidden'
   }
 
   /**
